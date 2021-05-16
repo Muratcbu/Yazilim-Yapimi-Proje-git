@@ -40,7 +40,7 @@ namespace Borsa
             this.btnMalEkle = new System.Windows.Forms.Button();
             this.btnParaEkle = new System.Windows.Forms.Button();
             this.grpboxAdmin = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMalOnayla = new System.Windows.Forms.Button();
             this.btnParaOnayla = new System.Windows.Forms.Button();
             this.btnBitir = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
@@ -131,7 +131,7 @@ namespace Borsa
             // 
             // grpboxAdmin
             // 
-            this.grpboxAdmin.Controls.Add(this.button2);
+            this.grpboxAdmin.Controls.Add(this.btnMalOnayla);
             this.grpboxAdmin.Controls.Add(this.btnParaOnayla);
             this.grpboxAdmin.Location = new System.Drawing.Point(149, 227);
             this.grpboxAdmin.Name = "grpboxAdmin";
@@ -140,14 +140,15 @@ namespace Borsa
             this.grpboxAdmin.TabStop = false;
             this.grpboxAdmin.Text = "Yönetici İşlemleri";
             // 
-            // button2
+            // btnMalOnayla
             // 
-            this.button2.Location = new System.Drawing.Point(132, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Mal O&nayla (N)";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMalOnayla.Location = new System.Drawing.Point(132, 22);
+            this.btnMalOnayla.Name = "btnMalOnayla";
+            this.btnMalOnayla.Size = new System.Drawing.Size(108, 32);
+            this.btnMalOnayla.TabIndex = 1;
+            this.btnMalOnayla.Text = "Mal O&nayla (N)";
+            this.btnMalOnayla.UseVisualStyleBackColor = true;
+            this.btnMalOnayla.Click += new System.EventHandler(this.btnMalOnayla_Click);
             // 
             // btnParaOnayla
             // 
@@ -205,7 +206,7 @@ namespace Borsa
         private System.Windows.Forms.Button btnParaEkle;
         private System.Windows.Forms.GroupBox grpboxAdmin;
         private System.Windows.Forms.Button btnAlimYap;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMalOnayla;
         private System.Windows.Forms.Button btnParaOnayla;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btnBitir;

@@ -67,5 +67,11 @@ namespace Borsa
             frmUrunSat frmUrunSat = new frmUrunSat(kisi.KisiID);
             frmUrunSat.ShowDialog();
         }
+
+        private void btnMalOnayla_Click(object sender, EventArgs e)
+        {
+            frmUrunOnayla frmUrunOnayla = new frmUrunOnayla();
+            frmUrunOnayla.ShowDialog();
+        }
     }
 }
