@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Borsa</id>
+    <version>1.0.0</version>
+    <authors>Borsa</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0-windows7.0">
+        <dependency id="BusinessLibrary" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="EntityLibrary" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.8.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\bin\Debug\net5.0-windows\Borsa.runtimeconfig.json" target="lib\net5.0-windows7.0\Borsa.runtimeconfig.json" />
+    <file src="F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\bin\Debug\net5.0-windows\Borsa.dll" target="lib\net5.0-windows7.0\Borsa.dll" />
+  </files>
+</package>

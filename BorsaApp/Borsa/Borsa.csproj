@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj" />
+    <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="frmParaOnayla - Kopyala.Designer.cs">
+      <DependentUpon>frmParaOnayla.Designer.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="frmParaOnayla - Kopyala.resx">
+      <DependentUpon>frmParaOnayla.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

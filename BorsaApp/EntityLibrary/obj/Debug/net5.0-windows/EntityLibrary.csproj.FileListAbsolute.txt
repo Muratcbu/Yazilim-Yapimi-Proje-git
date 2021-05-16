@@ -1,0 +1,15 @@
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\EntityLibrary.deps.json
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\EntityLibrary.dll
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\ref\EntityLibrary.dll
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\EntityLibrary.pdb
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\DataLibrary.dll
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\bin\Debug\net5.0-windows\DataLibrary.pdb
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.csprojAssemblyReference.cache
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.AssemblyInfoInputs.cache
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.AssemblyInfo.cs
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.csproj.CoreCompileInputs.cache
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.csproj.CopyComplete
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.dll
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\ref\EntityLibrary.dll
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\EntityLibrary\obj\Debug\net5.0-windows\EntityLibrary.pdb
