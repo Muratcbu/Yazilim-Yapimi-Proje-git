@@ -66,7 +66,7 @@ namespace EntityLibrary
             {
                 var command = new SqlCommand("sp_urunOnayla @UrunID,@OnayDurumu", baglanti);
                 command.Parameters.Add(new SqlParameter("UrunID", urun.UrunID));
-                //command.Parameters.Add(new SqlParameter("OnayDurumu", urun.OnayDurumu));
+                command.Parameters.Add(new SqlParameter("OnayDurumu", urun.OnayDurumu));
                 baglanti.Open();
                 if (command.ExecuteNonQuery() != -1)
                 {

@@ -12,17 +12,19 @@ namespace EntityLibrary
         public string UrunAd { get; set; }
         public int OlcuBirimiID { get; set; }
         public string Aciklama { get; set; }
+        public int OnayDurumu { get; set; }
         public Urun()
         {
 
         }
         // Urun nesnesi parametreli yapıcı metodu
-        public Urun(int urunid, string urunad, int olcubirimiid, string aciklama)
+        public Urun(int urunid, string urunad, int olcubirimiid, string aciklama, int onaydurumu)
         {
             this.UrunID = urunid;
             this.UrunAd = urunad;
             this.OlcuBirimiID = olcubirimiid;
             this.Aciklama = aciklama;
+            this.OnayDurumu = onaydurumu;
         }
     }
     
