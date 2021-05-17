@@ -36,6 +36,11 @@ namespace Borsa
                 grpboxAdmin.Enabled = false;
                 grpboxAdmin.Visible = false;                
             }
+            else if(kisi.Yetki == 1)
+            {
+                grpboxAdmin.Enabled = true;
+                grpboxAdmin.Visible = true;
+            }
             //Oturum açan kişinin adı formun altındaki durum çubuğunda gösterilecek.
             toolStripStatusLabel1.Text= "Hoşgeldin " + kisi.Ad;
         }

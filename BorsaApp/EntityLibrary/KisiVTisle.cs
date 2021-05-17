@@ -52,18 +52,20 @@ namespace EntityLibrary
                         // veri tabanından okunan kişi bilgiler kişi nesnesi property'lerine aktarılıyor.
                         while (reader.Read())
                         {
-                            kisi = new Kisi();
-                            kisi.KisiID = reader.GetInt32(0); //id
-                            kisi.Tcno = reader.GetString(1);   //Tcno
-                            kisi.Ad = reader.GetString(2); //gerçek isim
-                            kisi.Soyad = reader.GetString(3);//soy isim
-                            kisi.KullaniciAd = reader.GetString(4);//kullaniciAd
-                            kisi.Parola = reader.GetString(5); //parola
-                            kisi.Telefon = reader.GetString(6);//telefon
-                            kisi.Eposta = reader.GetString(7);//eposta
-                            kisi.Adres = reader.GetString(8);//adres
-                            kisi.Yetki = reader.GetInt32(9);//yetki
-                            kisi.Aktif = reader.GetInt32(10);//0 ise aktif hesap, 1 ise pasif hesap
+                            kisi = new Kisi
+                            {
+                                KisiID = reader.GetInt32(0), //id
+                                Tcno = reader.GetString(1),   //Tcno
+                                Ad = reader.GetString(2), //gerçek isim
+                                Soyad = reader.GetString(3),//soy isim
+                                KullaniciAd = reader.GetString(4),//kullaniciAd
+                                Parola = reader.GetString(5), //parola
+                                Telefon = reader.GetString(6),//telefon
+                                Eposta = reader.GetString(7),//eposta
+                                Adres = reader.GetString(8),//adres
+                                Yetki = reader.GetInt32(9),//yetki
+                                Aktif = reader.GetInt32(10)//0 ise aktif hesap, 1 ise pasif hesap                            
+                            };
                         }
                     }
                     baglanti.Close();
@@ -73,7 +75,7 @@ namespace EntityLibrary
                     MessageBox.Show("Veri tabanına bağlantıda hata oluştu...!");
                 }
             }
-            return kisi; // alınan kiş bilgileri gönderiliyor.
+            return kisi; // alınan kişi bilgileri gönderiliyor.
         }
 
         // kullanıcı adı ve parolası verilen kişininbilgilerini güncelleyen metot

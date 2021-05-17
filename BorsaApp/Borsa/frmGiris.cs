@@ -19,8 +19,8 @@ namespace Borsa
             InitializeComponent();
         }
         // sık kullanılacak nesneler global olarak bildiriliyor.
-        public Kisi kisi;//kişi nesnesi bilgileri diğer formlara gönderileceği için public.
-        KisiElle uyeIslem;
+        public Kisi kisi=new Kisi();//kişi nesnesi bilgileri diğer formlara gönderileceği için public.
+        KisiElle uyeIslem=new KisiElle();
         #region yeni üye kaydı
         //yeni üye kaydı metodu çağırılıyor
         private void btnUyeol_Click(object sender, EventArgs e)
