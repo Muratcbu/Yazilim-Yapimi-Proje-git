@@ -60,7 +60,7 @@ BorsaApp\Borsa\Borsa.sln başlangıç dosyasıdır.
 -   Hem yöneticiler, hem de kullanıcılar aynı ekran ile hesaplarına para ekleyebilirler.
 ![image](https://user-images.githubusercontent.com/77682988/118417836-9aacf600-b6be-11eb-968d-986175aa8cde.png)
 
--	Hesaba para eklendiğinde varsayılan onay durumu sıfırdır. Sıfır onaylanmadı, 1 ise onaylandı anlamına gelmektedir. Admin eklenen parayı onaylamak için kayıt seçip onay durumuna 1 girmelidir. Sistem hatalı girişleri kabul etmez.
+-	Hesaba para eklendiğinde varsayılan onay durumu sıfırdır. Sıfır onaylanmadı, 1 ise onaylandı anlamına gelmektedir. Admin eklenen parayı onaylamak için kayıt seçip onay durumuna 1 girmelidir. Sistem hatalı girişleri kabul etmez.  
 ![image](https://user-images.githubusercontent.com/77682988/118417853-a5678b00-b6be-11eb-9202-f28e212a2a37.png)
 
 -	Kişiler ellerindeki ürünleri pazara sunmak istediklerinde ürün türünü, miktarını, döviz cinsini ve birim fiyatını girerek admin onayına gönderirler.  
