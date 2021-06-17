@@ -21,7 +21,7 @@ namespace Borsa
 
         public Kisi kisi; //Kişi nesnesi global olarak bildiriliyor
         #region Oturum açma ekranı ve kişi bilgilerinin alınması ve yetki denetimi
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmAna_Load(object sender, EventArgs e)
         {
             // Kullanıcı giriş ekranını çağırır.
             frmGiris lgForm = new frmGiris();
@@ -64,6 +64,12 @@ namespace Borsa
             frmUrunAl frmUrunAl = new frmUrunAl(kisi.KisiID);
             frmUrunAl.ShowDialog();
         }
+        private void btnTalep_Click(object sender, EventArgs e)
+        {
+            // Aktif kullanıcının alim emri verecegi form açılıyor!
+            frmTalep frmtalep = new frmTalep(kisi.KisiID);
+            frmtalep.ShowDialog();
+        }
         private void btnBitir_Click(object sender, EventArgs e)
         {
             // Program kapatılıyor.
@@ -71,7 +77,7 @@ namespace Borsa
         }
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            Form1_Load(null, null);
+            frmAna_Load(null, null);
         }
         #endregion
         #region yönetici denetimleri 
@@ -88,5 +94,6 @@ namespace Borsa
             frmParaOnayla.ShowDialog();
         }
         #endregion
+
     }
 }

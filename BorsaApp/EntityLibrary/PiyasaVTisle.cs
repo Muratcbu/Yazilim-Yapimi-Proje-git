@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataLibrary;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace EntityLibrary
 {
@@ -126,6 +127,38 @@ namespace EntityLibrary
                 baglanti.Close();
             }
             return toplam;
+        }
+
+        /* metot overloading yapılıyor. Alım emir ekranında piyasa nesnesine ek olarak
+         * birim fiyat teklifi de parametre olarak geliyor ancak metot adı aynı */
+        public static double ToplamStokGoster(Piyasa piyasa, string fiyatTeklif)
+        {
+            double toplam = 0, hedefFiyat=0;
+            try
+            {
+                hedefFiyat = Convert.ToDouble(fiyatTeklif);
+                using (var baglanti = Database.Baglan())
+                {
+                    baglanti.Open();
+                    // talep edilen ürünün ID, döviz cinsi ve birim fiyat teklifi degerleri MS SQL Server'daki 
+                    // f_TeklifToplamStok isimli fonksiyona parametre olarak gönderiliyor.
+                    using (var cmd = new SqlCommand("SELECT dbo.f_TeklifToplamStok(@urunID,@dovizID,@HedefFiyat)", baglanti))
+                    {
+                        cmd.Parameters.AddWithValue("@urunID", piyasa.UrunID);
+                        cmd.Parameters.AddWithValue("@dovizID", piyasa.DovizID);
+                        cmd.Parameters.AddWithValue("@HedefFiyat",hedefFiyat);
+                        if (cmd.ExecuteScalar() != DBNull.Value) // f_ToplamStok fonksiyonundan bir değer döndüyse
+                            toplam = (double)cmd.ExecuteScalar();// toplam değişkenine aktarılıyor.
+                    }
+                    baglanti.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Birim fiyat teklifini sayısal olarak giriniz..!");
+            }
+                return toplam;
+            
         }
 
         // ürün alım-satımı yapılırken talep edilen üründen mevcut stok miktarlarını bulan metot.

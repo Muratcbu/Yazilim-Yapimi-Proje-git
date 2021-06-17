@@ -1,4 +1,3 @@
-F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.csprojAssemblyReference.cache
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.frmAna.resources
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.frmGiris.resources
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.frmParaEkle.resources
@@ -37,3 +36,5 @@ F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.pdb
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.genruntimeconfig.cache
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.frmUrunOnayla.resources
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.csproj.AssemblyReference.cache
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\Borsa\obj\Debug\net5.0-windows\Borsa.frmTalep.resources

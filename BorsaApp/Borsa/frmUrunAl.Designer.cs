@@ -153,6 +153,7 @@ namespace Borsa
             // 
             this.txtMevcutStok.Location = new System.Drawing.Point(461, 246);
             this.txtMevcutStok.Name = "txtMevcutStok";
+            this.txtMevcutStok.ReadOnly = true;
             this.txtMevcutStok.Size = new System.Drawing.Size(120, 23);
             this.txtMevcutStok.TabIndex = 4;
             this.txtMevcutStok.Text = "0";

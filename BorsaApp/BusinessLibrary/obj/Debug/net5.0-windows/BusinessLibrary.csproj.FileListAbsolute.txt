@@ -6,7 +6,6 @@ F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\bin\Debug\net5.0-windows\EntityLibrary.dll
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\bin\Debug\net5.0-windows\EntityLibrary.pdb
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\bin\Debug\net5.0-windows\DataLibrary.pdb
-F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.csprojAssemblyReference.cache
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.GeneratedMSBuildEditorConfig.editorconfig
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.AssemblyInfoInputs.cache
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.AssemblyInfo.cs
@@ -15,3 +14,4 @@ F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.dll
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\ref\BusinessLibrary.dll
 F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.pdb
+F:\Murat_ALBAYRAK\DERSNOT\YAZILIM_MÜH\YM_2021_BAHAR\YM_Yazılım Yapımı\Proje Çalışması\BorsaApp\BusinessLibrary\obj\Debug\net5.0-windows\BusinessLibrary.csproj.AssemblyReference.cache

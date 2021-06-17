@@ -17,7 +17,7 @@ namespace BusinessLibrary
         public bool PiyasaHareketEkle(PiyasaHareket piyasahareket)
         {
             bool result = false;
-            //entity katmanındaki PiyasaHareketEkle metodu yani satış kaydı eklediyse
+            //entity katmanındaki PiyasaHareketEkle metodu satış kaydını ekleyebildiyse
             if (context.PiyasaHareketEkle(piyasahareket))
             {
                 result = true;

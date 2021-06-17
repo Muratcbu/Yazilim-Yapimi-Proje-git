@@ -45,6 +45,7 @@ namespace Borsa
             this.btnBitir = new System.Windows.Forms.Button();
             this.btnGiris = new System.Windows.Forms.Button();
             this.lblGirisBaslik = new System.Windows.Forms.Label();
+            this.btnTalep = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.YoneticicontextMenuStrip1.SuspendLayout();
             this.grpboxKullanici.SuspendLayout();
@@ -92,6 +93,7 @@ namespace Borsa
             // 
             // grpboxKullanici
             // 
+            this.grpboxKullanici.Controls.Add(this.btnTalep);
             this.grpboxKullanici.Controls.Add(this.btnAlimYap);
             this.grpboxKullanici.Controls.Add(this.btnMalEkle);
             this.grpboxKullanici.Controls.Add(this.btnParaEkle);
@@ -193,6 +195,16 @@ namespace Borsa
             this.lblGirisBaslik.TabIndex = 5;
             this.lblGirisBaslik.Text = "Borsa - Ana Ekranı";
             // 
+            // btnTalep
+            // 
+            this.btnTalep.Location = new System.Drawing.Point(360, 22);
+            this.btnTalep.Name = "btnTalep";
+            this.btnTalep.Size = new System.Drawing.Size(108, 32);
+            this.btnTalep.TabIndex = 1;
+            this.btnTalep.Text = "Alım &Emri Ver (E)";
+            this.btnTalep.UseVisualStyleBackColor = true;
+            this.btnTalep.Click += new System.EventHandler(this.btnTalep_Click);
+            // 
             // frmAna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -209,7 +221,7 @@ namespace Borsa
             this.Name = "frmAna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BorsaApp v1.0";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmAna_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.YoneticicontextMenuStrip1.ResumeLayout(false);
@@ -238,6 +250,7 @@ namespace Borsa
         private System.Windows.Forms.Button btnBitir;
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Label lblGirisBaslik;
+        private System.Windows.Forms.Button btnTalep;
     }
 }
 

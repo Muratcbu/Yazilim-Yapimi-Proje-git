@@ -35,7 +35,7 @@ namespace Borsa
             cmbDovizDoldur();
             txtMevcutpara.Text = mevcutbakiye().ToString();//oturum açan kullanıcının mevcut toplam bakiyesi.
             txtMevcutStok.Text = mevcutstok().ToString();//seçilen ürün ve döviz cinsine göre ne kadar stok mevcut?
-            txtMiktar.Clear();
+            txtMiktar.Text = "0";
         }
         //ürün seçildikten sonra döviz combo box ı da de doldurulur ve seçilen ürün seçilen 
         //döviz cinsinden toplam stok bilgisi formdaki txtmevcutStok kutusuna yazılır.
@@ -61,7 +61,7 @@ namespace Borsa
                                                          //ilgili ürünün toplam stok bilgisi döndürülüyor.
         }
         #endregion
-        #region denetimleri doldruma
+        #region denetimleri doldurma
         //combo box ta gösterilecek ürünleri dolduran metot
         private void cmbUrunDoldur()
         {
@@ -94,63 +94,76 @@ namespace Borsa
         {   
             PiyasaHareket hareket = new();//piyasa hareket bilgilerini tutacak nesne.
             piyasahareketislem = new();//piyasa hareketini işleyecek olan nesne.
-            double butce = Convert.ToDouble(txtMevcutpara.Text);//oturum açan kullanıcını mevcut toplam bakiyesi bütçedir. 
-            double butcetakip = butce;//butce takip döngü içinde sürekli azaltılacak, ama baslangıç bütçesi aynı kalacak.
-            float istenenmiktar = float.Parse(txtMiktar.Text);//kullanıcının satın almak istediği miktar.
-            float miktartakip = istenenmiktar;//miktar takip değişkeni satın alınmak istenen miktar ile başlayıp her döngü çevriminde azaltılacak.
-            float adaymiktar = 0;//döngü çevriminde mevcut bütçe ile ilgili kayıttaki üründen en fazla kaç tane alınbileceği.
-            DataTable adayurunler = new DataTable();//Satın alınmaya uygun, onaylı ürün listesi bu data table da tutulacak.
-            //UygunStoklar metodundan dönen satın alınmak istenen ürünün onaylanmış kayıtları adayurunler tablosuna yerleştiriliyor.
-            adayurunler=PiyasaVTisle.UygunStoklar((int)cmbUrun.SelectedValue, (int)cmbDoviz.SelectedValue);
-            //Alıcı istediği üründen en az bir tane alacak bütçeye sahip değilse!
-            if (Convert.ToDouble(adayurunler.Rows[0][3]) > butce)
+            try
             {
-                MessageBox.Show("Bütçe Yetersiz...!");
-                return;
-            }
-            foreach (DataRow dr in adayurunler.Rows)//uygun ürünlerden fiyatı en düşük olana göre satın alma gerçekleşecek.
-            {
-                //istenen miktar ve bütçe sıfırlandıysa veya eksi olmuşsa satın alma sonlananır.
-                if (miktartakip <= 0 || butcetakip<=0)
-                    break;
-                
-                // aday ürünün birim fiyatı data table ın 3 numaralı sütunundadır.
-                if (butcetakip >= Convert.ToDouble(dr[3]))//bütçe aday üründen en az bir birim almaya müsaitse
+                double butce = Convert.ToDouble(txtMevcutpara.Text);//oturum açan kullanıcını mevcut toplam bakiyesi bütçedir. 
+                /* butcetakip döngü içinde sürekli azaltılacak, ama baslangıç bütçesi aynı kalacak.
+                 * %1 komisyon odeneceginden butcenin en fazla %99'u kullanilabilecek */
+                double butcetakip = butce * 0.99;
+                float istenenmiktar = float.Parse(txtMiktar.Text);//kullanıcının satın almak istediği miktar.
+                float miktartakip = istenenmiktar;//miktar takip değişkeni satın alınmak istenen miktar ile başlayıp her döngü çevriminde azaltılacak.
+                float adaymiktar = 0;//döngü çevriminde mevcut bütçe ile ilgili kayıttaki üründen en fazla kaç tane alınbileceği.
+                DataTable adayurunler = new DataTable();//Satın alınmaya uygun, onaylı ürün listesi bu data table da tutulacak.
+                                                        //UygunStoklar metodundan dönen satın alınmak istenen ürünün onaylanmış kayıtları adayurunler tablosuna yerleştiriliyor.
+                adayurunler = PiyasaVTisle.UygunStoklar((int)cmbUrun.SelectedValue, (int)cmbDoviz.SelectedValue);
+                //Alıcı istediği üründen en az bir tane alacak bütçeye sahip değilse!
+                if (Convert.ToDouble(adayurunler.Rows[0][3]) * 1.01 > butce) // %1 komisyon dahil edildi.
                 {
-                    //aday üründen en fazla kaç birim alınabilir hesaplanıyor.
-                    adaymiktar = (float)Math.Floor(butcetakip / Convert.ToDouble(dr[3]));
-
-                    //data table ın 5 numaralı sütununda aday ürünün stok miktar bilgisi yer almaktadır.
-                    //istenen miktar en fazla bütçe ile alınabilecek miktardan azsa ve aday ürünün stoğu bunu karşılıyorsa.
-                    if (miktartakip <= adaymiktar && adaymiktar<=Convert.ToSingle(dr[5]))
-                    {
-                        hareket.Miktar = miktartakip;//satış hareketinin satış miktarı miktartakip değişkeni olarak kaydediliyor.
-                        //talep edilen miktarın tamamı bu aday üründen karşılandı.
-                    }
-
-                    //istenen miktar en fazla bütçe ile alınabilecek miktardan azsa ve fakat aday ürünün stoğu buna yetmiyorsa 
-                    else if (miktartakip <= adaymiktar && adaymiktar > Convert.ToSingle(dr[5]))
-                    {
-                        hareket.Miktar = Convert.ToSingle(dr[5]);//mevcut satış hareketinin satış miktarı mevcut aday ürün stoğunun tamamı oldu.
-                        //aday ürünün tüm stoğu satın alındı. Ama talep karşılanamadı. İstenen ürünün geri kalan miktarı için
-                                    //data table ın bir sonraki satırındaki aday ürüne bakılacak.
-                    }
-                    else
-                    {
-                        hareket.Miktar = adaymiktar;// mevcut aday ürün stoğu diğer durumlardan farklı ise
-                    }
-                    hareket.PiyasaID = (int)dr[0];// data table 0. sütun değeri piyasa ID dir.
-                    hareket.AliciID = _kisiID;// alıcı kimliği ana etkin oturum açmış kullanıcıdır.
-                    hareket.SaticiID = (int)dr[1];// satıcı kimliği data table da en son işlenen satırın 1. sütunundadır.
-                    miktartakip -= hareket.Miktar;//eğer tek bir stoktan talep karşılanamadıysa istenen miktar, 
-                                //bir önceki satın alma miktarı kadar azaltılacak.
-                    butcetakip -= Convert.ToDouble(dr[3]) * hareket.Miktar;//ne kadar bütçe kaldıysa butcetakip değişkeninde
-                    piyasahareketislem.PiyasaHareketEkle(hareket);//yapılan satış hareketi PiyasaHareketEkle metodu ile veri  tabanına işleniyor.
+                    MessageBox.Show("Bütçe Yetersiz...!");
+                    return;
                 }
-                else //kalan bütçe sıradaki aday üründen bir tane bile almaya yetmiyorsa satın alma bitsin.
-                    break;
+                foreach (DataRow dr in adayurunler.Rows)//uygun ürünlerden fiyatı en düşük olana göre satın alma gerçekleşecek.
+                {
+                    //istenen miktar ve bütçe sıfırlandıysa veya eksi olmuşsa satın alma sonlananır.
+                    if (miktartakip <= 0 || butcetakip <= 0)
+                        break;
+
+                    // aday ürünün birim fiyatı data table ın 3 numaralı sütunundadır.
+                    if (butcetakip >= Convert.ToDouble(dr[3]))//bütçe aday üründen en az bir birim almaya müsaitse
+                    {
+                        //aday üründen en fazla kaç birim alınabilir hesaplanıyor.
+                        adaymiktar = (float)Math.Floor(butcetakip / Convert.ToDouble(dr[3]));
+
+                        //data table ın 5 numaralı sütununda aday ürünün stok miktar bilgisi yer almaktadır.
+                        //istenen miktar en fazla bütçe ile alınabilecek miktardan azsa ve aday ürünün stoğu bunu karşılıyorsa.
+                        if (miktartakip <= adaymiktar && adaymiktar <= Convert.ToSingle(dr[5]))
+                        {
+                            hareket.Miktar = miktartakip;//satış hareketinin satış miktarı miktartakip değişkeni olarak kaydediliyor.
+                                                         //talep edilen miktarın tamamı bu aday üründen karşılandı.
+                        }
+
+                        //istenen miktar en fazla bütçe ile alınabilecek miktardan azsa ve fakat aday ürünün stoğu buna yetmiyorsa 
+                        else if (miktartakip <= adaymiktar && adaymiktar > Convert.ToSingle(dr[5]))
+                        {
+                            hareket.Miktar = Convert.ToSingle(dr[5]);//mevcut satış hareketinin satış miktarı mevcut aday ürün stoğunun tamamı oldu.
+                                                                     //aday ürünün tüm stoğu satın alındı. Ama talep karşılanamadı. İstenen ürünün geri kalan miktarı için
+                                                                     //data table ın bir sonraki satırındaki aday ürüne bakılacak.
+                        }
+                        else
+                        {
+                            hareket.Miktar = adaymiktar;// mevcut aday ürün stoğu diğer durumlardan farklı ise
+                        }
+                        hareket.PiyasaID = (int)dr[0];// data table 0. sütun değeri piyasa ID dir.
+                        hareket.AliciID = _kisiID;// alıcı kimliği ana etkin oturum açmış kullanıcıdır.
+                        hareket.SaticiID = (int)dr[1];// satıcı kimliği data table da en son işlenen satırın 1. sütunundadır.
+                        miktartakip -= hareket.Miktar;//eğer tek bir stoktan talep karşılanamadıysa istenen miktar, 
+                                                      //bir önceki satın alma miktarı kadar azaltılacak.
+                        butcetakip -= Convert.ToDouble(dr[3]) * hareket.Miktar;//ne kadar bütçe kaldıysa butcetakip değişkeninde
+                        piyasahareketislem.PiyasaHareketEkle(hareket);//yapılan satış hareketi PiyasaHareketEkle metodu ile veri  tabanına işleniyor.
+                    }
+                    else //kalan bütçe sıradaki aday üründen bir tane bile almaya yetmiyorsa satın alma bitsin.
+                        break;
+                }
             }
-            frmUrunAl_Load(null,null);
+            catch
+            {
+                MessageBox.Show("Seçtiğiniz döviz türünde stok yok!\nveya\n" +
+                    "Talep miktarını hatalı girdiniz!");
+            }
+            finally
+            {
+                frmUrunAl_Load(null, null);
+            }
         }
         #endregion
         #region klavye kısayolları
