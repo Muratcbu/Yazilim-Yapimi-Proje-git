@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uZwkYUwzXQEhw7cJETSOFcfKjOYKY/skVDjupwfHfedoPzTT1zd6cAkch4dkaVCj4GrBgIq2LBzHUHAjJSVkJA==",
+  "dgSpecHash": "bx1YPlZZQu7iYmE8yowZgItWVJcQEKr/bsawzP/3wIeyX1bNg+Q3y9krrxF+90LCICApZwBih4GuNRhaRwKBxg==",
   "success": true,
-  "projectFilePath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj",
+  "projectFilePath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
