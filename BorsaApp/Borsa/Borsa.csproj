@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <Reference Include="ExcelLibrary">
-      <HintPath>..\..\..\..\..\..\GÖRSEL_P\ExcelLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\GÖRSEL_P\ExcelLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

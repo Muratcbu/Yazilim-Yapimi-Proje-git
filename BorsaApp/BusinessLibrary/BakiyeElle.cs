@@ -22,11 +22,11 @@ namespace BusinessLibrary
             return result;
         }
 
-        public bool BakiyeOnayla(Bakiye bakiye) // eklenen parayı onaylayan metot
+        public bool BakiyeOnayla(Bakiye bakiye, string dovizcinsi) // eklenen parayı onaylayan metot
         {
             bool result = false;
             // onaylama işlemi başarılı ise
-            if (context.BakiyeOnayla(bakiye))
+            if (context.BakiyeOnayla(bakiye,dovizcinsi))
             {
                 result = true;
             }

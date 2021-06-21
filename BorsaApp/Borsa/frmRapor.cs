@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using EntityLibrary;
+using ExcelLibrary;
 
 namespace Borsa
 {
@@ -27,7 +28,6 @@ namespace Borsa
             DataSet ds = new DataSet("New_DataSet");
             dataTable = PiyasaHareketVTisle.Rapor(_kisiID,dtpBaslangic.Value,dtpBitis.Value);
             dgvRapor.DataSource = dataTable;
-            
 
             // data set ve data table için yerel thread ler ayarlanıyor.
             ds.Locale = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -51,9 +51,28 @@ namespace Borsa
         }
         #endregion
 
+        #region rapor gösterme ve dosya oluşturma metodu çağırılıyor
         private void btnRaporGoster_Click(object sender, EventArgs e)
         {
             gridGuncelle(); // datagrid güncelleniyor ve excel dosyası olarak rapor oluşturuluyor..!
         }
+
+        #endregion
+
+        #region klavye kısayolları
+        private void frmRapor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnAnaSayfa.PerformClick();
+            }
+           
+            if (e.KeyCode == Keys.R)
+            {
+                btnRaporGoster.PerformClick();
+            }
+            
+        }
+        #endregion
     }
 }

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 //business ve entity sınıfları include ediliyor.
 using BusinessLibrary;
 using EntityLibrary;
 
 namespace Borsa
-{   public partial class frmParaEkle : Form
+{
+    public partial class frmParaEkle : Form
     {
         int _kisiID;//Ana formdan gele kişi ID bu değişkende tutulacak
         public frmParaEkle(int kisiID)
@@ -39,26 +34,26 @@ namespace Borsa
         }
         #endregion
         #region para eklenmesi
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try // exception oluşabilecek kodlar try içinde yazılıyor.
-            {
-                bakiye = new Bakiye();
-                bakiyeislem = new BakiyeElle();//business katmanda çalışacak nesne.
-                bakiye.KisiID = _kisiID;// oturum açan kişi para eklenecek kişi olacak.
-                //girilen para ve seçilen döviz cinsi değerlerinin nesneye aktarılması.
-                bakiye.Bakiyepara = Convert.ToDecimal(txtParamiktar.Text);
-                bakiye.Dovizcinsi = Convert.ToInt32(cmbDoviz.SelectedValue);
-                if (bakiyeislem.BakiyeEkle(bakiye))// para ekleme başarılı ise.
+        private void btnParaekleme_Click(object sender, EventArgs e)
+        {   
+                try // exception oluşabilecek kodlar try içinde yazılıyor.
                 {
-                    MessageBox.Show("Yeni para eklendi! Onay bekliyor...!");
+                    bakiye = new Bakiye();
+                    bakiyeislem = new BakiyeElle();//business katmanda çalışacak nesne.
+                    bakiye.KisiID = _kisiID;// oturum açan kişi para eklenecek kişi olacak.
+                                            //girilen para ve seçilen döviz cinsi değerlerinin nesneye aktarılması.
+                    bakiye.Bakiyepara = Convert.ToDecimal(txtParamiktar.Text);
+                    bakiye.Dovizcinsi = Convert.ToInt32(cmbDoviz.SelectedValue);
+                    if (bakiyeislem.BakiyeEkle(bakiye))// para ekleme başarılı ise.
+                    {
+                        MessageBox.Show("Yeni para eklendi! Onay bekliyor...!");
+                    }
                 }
-            }
-            catch // para ekleme başarısız olduysa.
-            {
-                MessageBox.Show("Yeni para eklenemedi!\n" +
-                    "Para miktarını girerken sadece rakam kullanınız!");
-            }
+                catch // para ekleme başarısız olduysa.
+                {
+                    MessageBox.Show("Yeni para eklenemedi!\n" +
+                        "Para miktarını girerken sadece rakam kullanınız!");
+                }
         }
         #endregion
         #region klavye kısayolları

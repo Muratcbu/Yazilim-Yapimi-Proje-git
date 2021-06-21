@@ -84,7 +84,7 @@ namespace Borsa
             this.btnParaekleme.TabIndex = 4;
             this.btnParaekleme.Text = "Para &Ekle (F2)";
             this.btnParaekleme.UseVisualStyleBackColor = true;
-            this.btnParaekleme.Click += new System.EventHandler(this.button1_Click);
+            this.btnParaekleme.Click += new System.EventHandler(this.btnParaekleme_Click);
             // 
             // label3
             // 

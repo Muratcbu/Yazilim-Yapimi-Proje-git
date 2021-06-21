@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DataLibrary;
 using System.Data.SqlClient;
 using System.Data;
+using System.Xml;
+using System.Windows.Forms;
 
 namespace EntityLibrary
 {
@@ -80,16 +82,36 @@ namespace EntityLibrary
         }
 
         // admin tarafından bakiye onaylama metodu
-        public bool BakiyeOnayla(Bakiye bakiye)
+        public bool BakiyeOnayla(Bakiye bakiye, string dovizcinsi)
         {
             bool result = false;
+            if(dovizcinsi!="TL") // döviz cinsi TL değilse kur dönüşümü yapılacak.
+            {
+                string xmlcanlidoviz = "https://www.tcmb.gov.tr/kurlar/today.xml";// canlı döviz bilgilerinin alınacağı adres
+                var xmldoc = new XmlDocument();// xmldoc isimli xml belgesi tanılanıyor.
+                xmldoc.Load(xmlcanlidoviz);// xml belgesine url yükleniyor.
+
+
+                string xmldovizal = "Tarih_Date/Currency[@Kod='" + dovizcinsi + "']/BanknoteBuying";
+                // onaylanan para biriminin TL efektif alış karşılığı dovizTL stringine alınıyor.
+                string dovizTL = xmldoc.SelectSingleNode(xmldovizal).InnerXml;
+                
+                // binler basamağı ve ondalık ayırıcı düzenleniyor!
+                dovizTL = dovizTL.Replace('.', ','); // kaynak url'de ondalık ayırıcı olarak nokta kullanılıyor. 
+                                                    // Türkiye bölgesel ayarlarında ise ondalık ayırıcı virgüldür.
+                decimal yenibakiye = bakiye.Bakiyepara * Convert.ToDecimal(dovizTL);
+                MessageBox.Show("Onaylanan para biriminin birim TL karşılığı: " + dovizTL+                
+                    "\nve onaylanacak bakiye= "+dovizTL+"*"+bakiye.Bakiyepara.ToString()+"="+yenibakiye.ToString()+"TL");
+                bakiye.Bakiyepara = yenibakiye;
+            }
 
             using (var baglanti = Database.Baglan())
             {
-                // MS SQL Server'daki sp_bakiyeOnayla prosedürüne bakiyeID ve onaydurumu parametreleri gönderiliyor.
-                var command = new SqlCommand("sp_bakiyeOnayla @BakiyeID,@OnayDurumu", baglanti);
+                // MS SQL Server'daki sp_bakiyeOnayla prosedürüne bakiyeID, onaydurumu ve bakiye parametreleri gönderiliyor.
+                var command = new SqlCommand("sp_bakiyeOnayla @BakiyeID,@OnayDurumu,@bakiye", baglanti);
                 command.Parameters.Add(new SqlParameter("BakiyeID", bakiye.BakiyeID));
                 command.Parameters.Add(new SqlParameter("OnayDurumu", bakiye.OnayDurumu));
+                command.Parameters.Add(new SqlParameter("bakiye", bakiye.Bakiyepara));
                 baglanti.Open();
                 if (command.ExecuteNonQuery() != -1) // bakiye onaylama başarılı ise
                 {

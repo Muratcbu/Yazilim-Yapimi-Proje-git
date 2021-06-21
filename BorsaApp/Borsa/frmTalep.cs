@@ -90,6 +90,23 @@ namespace Borsa
             };
             return BakiyeVTisle.ToplamBakiyeGoster(bakiye);//Entity katmanındaki metot toplam bakiyeyi döndürüyor.
         }
+
+        private void txtFiyatTeklif_TextChanged(object sender, EventArgs e)
+        {
+            txtMevcutStok.Text = mevcutstok().ToString();
+        }
+
+        private void txtMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
+                && e.KeyChar != ',';
+        }
+
+        private void txtFiyatTeklif_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
+                && e.KeyChar != ',';
+        }
         #endregion
         #region Ürün alım satım işlemleri
         private void btnAl_Click(object sender, EventArgs e)
@@ -189,22 +206,5 @@ namespace Borsa
             }
         }
         #endregion
-
-        private void txtFiyatTeklif_TextChanged(object sender, EventArgs e)
-        {
-            txtMevcutStok.Text = mevcutstok().ToString();
-        }
-
-        private void txtMiktar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
-                && e.KeyChar != ',';
-        }
-
-        private void txtFiyatTeklif_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
-                && e.KeyChar != ',';
-        }
     }
 }
