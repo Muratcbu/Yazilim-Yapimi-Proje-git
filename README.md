@@ -71,3 +71,9 @@ BorsaApp\Borsa\Borsa.sln başlangıç dosyasıdır.
 
 -	Ürün alım satımı gerçekleşebilmesi için alıcının yeterli onaylı bakiyesi ve stokta ürün olması gerekmektedir. Satış gerçekleştiğinde bu hareket veri tabanına kaydedilir, alıcının toplam bakiyesi azaltılır, satıcının toplam bakiyesi arttırılır, satıcının sattığı ürünün stoğu azaltılır. Bütün bunlar için veri tabanında bir tetikleyici yazılmıştır.
 ![image](https://user-images.githubusercontent.com/77682988/118417879-c6c87700-b6be-11eb-97a8-27c403495ac8.png)
+
+-	Alıcı, alım imkanı doğrultusunda ürüne bir fiyat belirlemektedir. Ürün ve fiyat bilgisi alıcı tarafından sisteme girilmektedir. Veri tabanında ürüne ait satıcı fiyatları alış fiyatı ile karşılaştırılmaktadır. Alıcının istediği fiyattan satış yoksa, belirlenen fiyattan satış yapılana kadar alıcının alış işlemi bekletilmektedir. Satıcılar, alıcının belirlediği fiyat üzerinden satış yaptığında alış/satış işlemi gerçekleştirilecektir.
+
+-	Kullanıcı borsa üzerinden alış/satış yaptığı ürünlere ait raporlama yapabilmektedir. Kullanıcı tarafından tarih aralığı girilmesi istenir. Belirtilen tarih aralığında  alış/satış işlemine ait rapor dokümanı istenilen formatta kullanıcıya rapor edilir. 
+
+-	
