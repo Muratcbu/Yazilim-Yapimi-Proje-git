@@ -42,10 +42,6 @@ namespace EntityLibrary
         // hareketlerini bir data table nesnesinde veren metot
         public static DataTable Rapor(int kisiID, DateTime baslangic, DateTime bitis)
         {
-            /*MessageBox.Show("kişi ID=" + kisiID.ToString() + 
-                "\nBaşlangıç=" + baslangic.ToString() 
-                + "\nBitiş=" + bitis.ToString());*/
-
             string ilktarihstr, sontarihstr;
             DateTime takasTarih; //ilk tarih son tarihten sonra seçilmişse bunu düzeltirken kullanilacak nesne
 

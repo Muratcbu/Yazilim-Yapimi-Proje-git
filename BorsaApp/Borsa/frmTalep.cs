@@ -28,6 +28,8 @@ namespace Borsa
         Bakiye bakiye;
         Piyasa piyasa;
         PiyasaHareketElle piyasahareketislem;//piyasa hareketlerini işleyecek nesne
+        Talep talep;
+        TalepElle talepElle;
         private void frmTalep_Load(object sender, EventArgs e)
         {
             //combo box lar form yüklenirken doldurularak hazır hale getiriliyor.
@@ -107,6 +109,24 @@ namespace Borsa
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
                 && e.KeyChar != ',';
         }
+
+        //talep oluşturan metot
+        private void talepOlustur(double teklifEdilenFiyat, float miktartakip)
+        {
+            talep = new Talep
+            {
+                KisiID = _kisiID,
+                UrunID = (int)cmbUrun.SelectedValue,
+                Fiyat = teklifEdilenFiyat,
+                Miktar = miktartakip
+            };
+
+            talepElle = new TalepElle();
+            if (talepElle.TalepEkle(talep)) // oluşturulan talep veri tabanına başarılı bir şekilde kaydedildiyse
+                MessageBox.Show("Alım emri başarı ile verildi!\n" +
+                    "İstediğiniz ürün yazdığınız fiyattan satışa sunulduğunda\n" +
+                    "Yeterli bakiyeniz varsa otomatik olarak alım yapılacak!");
+        }
         #endregion
         #region Ürün alım satım işlemleri
         private void btnAl_Click(object sender, EventArgs e)
@@ -124,13 +144,34 @@ namespace Borsa
                 float adaymiktar = 0;//döngü çevriminde mevcut bütçe ile ilgili kayıttaki üründen en fazla kaç tane alınbileceği.
                 DataTable adayurunler = new DataTable();//Satın alınmaya uygun, onaylı ürün listesi bu data table da tutulacak.
                                                         //UygunStoklar metodundan dönen satın alınmak istenen ürünün onaylanmış kayıtları adayurunler tablosuna yerleştiriliyor.
-                adayurunler = PiyasaVTisle.UygunStoklar((int)cmbUrun.SelectedValue, (int)cmbDoviz.SelectedValue);
+                adayurunler = PiyasaVTisle.UygunStoklar((int)cmbUrun.SelectedValue, (int)cmbDoviz.SelectedValue, Convert.ToDouble(txtFiyatTeklif.Text)); //adayurunler = PiyasaVTisle.UygunStoklar((int)cmbUrun.SelectedValue, (int)cmbDoviz.SelectedValue);
+
+                // Verilen birim fiyat ve altında satılık ürün yoksa...
+                if (Convert.ToSingle(txtMevcutStok.Text) == 0)
+                {
+                    DialogResult dialog = new DialogResult();
+                    dialog = MessageBox.Show("Teklif ettiğiniz birim fiyat mevcut değil!\n" +
+                        txtFiyatTeklif.Text + " ve altında bir fiyat oluşursa otomatik satın alma " +
+                        "emri vermek istiyor musunuz?", "Talep Oluşturma", MessageBoxButtons.YesNo);
+                    if (dialog == DialogResult.Yes) // Talep oluşturuluyor.
+                    {
+                        talepOlustur(Convert.ToDouble(txtFiyatTeklif.Text), miktartakip);
+                        return;
+                    }
+                    else
+                    {   // Talep oluştururken bir hata ortaya çıktıysa
+                        MessageBox.Show("Ürün alımı veya alım emri gerçekleşmedi!");
+                        return;
+                    }
+                }
+
                 //Alıcı istediği üründen en az bir tane alacak bütçeye sahip değilse!
-                if (Convert.ToDouble(adayurunler.Rows[0][3]) * 1.01 > butce) // %1 komisyon dahil edildi.
+                else if (Convert.ToDouble(adayurunler.Rows[0][3]) * 1.01 > butce) // %1 komisyon dahil edildi.
                 {
                     MessageBox.Show("Bütçe Yetersiz...!");
                     return;
                 }
+                
                 foreach (DataRow dr in adayurunler.Rows)//uygun ürünlerden fiyatı en düşük olana göre satın alma gerçekleşecek.
                 {
                     //istenen miktar ve bütçe sıfırlandıysa veya eksi olmuşsa satın alma sonlananır.
@@ -173,11 +214,29 @@ namespace Borsa
                     else //kalan bütçe sıradaki aday üründen bir tane bile almaya yetmiyorsa satın alma bitsin.
                         break;
                 }
+                if (miktartakip > 0) // fiyat teklifine uygun olan stoklardan talep karşılanamadıysa
+                {
+                    DialogResult dialog = new DialogResult();
+                    dialog = MessageBox.Show("Stok/bütçe yetersizliği nedeniyle talep ettiğiniz miktar kadar alım yapamadınız.\n" +
+                        txtFiyatTeklif.Text + " ve altında bir fiyat oluşursa " + miktartakip + " miktarında ürünü " +
+                        "\ndaha sonra otomatik satın alma emri vermek istiyor musunuz?", "Talep Oluşturma", MessageBoxButtons.YesNo);
+                    if (dialog == DialogResult.Yes) // Talep oluşturuluyor.
+                    {
+                        talepOlustur(Convert.ToDouble(txtFiyatTeklif.Text), miktartakip);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Satın alma geçekleşti..!");
+                }
             }
-            catch
+            catch (Exception exc)
             {
-                MessageBox.Show("Seçtiğiniz döviz türünde stok yok!\nveya\n" +
-                    "Talep miktarını hatalı girdiniz!");
+                string hata = "\nSeçtiğiniz döviz türünde stok yok!\nveya\n" +
+                    "Talep miktarını hatalı girdiniz!";
+                MessageBox.Show(hata + Environment.NewLine + exc.ToString());
+
             }
             finally
             {

@@ -64,9 +64,13 @@ namespace Borsa
         {
             if (e.KeyCode == Keys.Escape)
             {
-                btnAnaSayfa.PerformClick();
+                btnAnasayfa.PerformClick();
             }
-           
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                btnAnasayfa.PerformClick();
+            }
+
             if (e.KeyCode == Keys.R)
             {
                 btnRaporGoster.PerformClick();

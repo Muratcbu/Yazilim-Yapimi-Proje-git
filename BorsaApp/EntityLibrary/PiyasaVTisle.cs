@@ -175,5 +175,19 @@ namespace EntityLibrary
             baglanti.Close();
             return dt;
         }
+
+        public static DataTable UygunStoklar(int urunID, int dovizID, double fiyatTeklif)
+        {
+            DataTable dt = new DataTable();
+            var baglanti = Database.Baglan();
+            // talep edilen ürün, döviz cinsi ve fiyat teklifi ile ilgili parametreler MS SQL Server f_UygunFiyatStoklar
+            // fonksiyonuna veriliyor. Fonksiyon uygun sonuçları en düşük fiyat en önce olacak şekilde
+            // tablo olarak veriyor.
+            string command = "SELECT * FROM dbo.f_UygunFiyatStoklar(" + urunID + "," + dovizID + "," + fiyatTeklif + ") ORDER BY fiyat ASC, tarih ASC";
+            SqlDataAdapter dataadap = new SqlDataAdapter(command, baglanti);
+            dataadap.Fill(dt); // f_UygunFiyatStoklar fonksiyonundan dönen sonuç dt tablosuna dolduruluyor.
+            baglanti.Close();
+            return dt;
+        }
     }
 }

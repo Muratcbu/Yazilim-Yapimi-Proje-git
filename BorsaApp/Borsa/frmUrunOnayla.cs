@@ -35,6 +35,7 @@ namespace Borsa
             dg.Columns[6].ReadOnly = true;
             dg.Columns[8].ReadOnly = true;
         }
+        #endregion
         #region guncelleme ve arama
         private void frmUrunOnayla_Load(object sender, EventArgs e)
         {
@@ -47,8 +48,7 @@ namespace Borsa
             dataTable = new DataTable();
             dataTable = PiyasaVTisle.PiyasaOnayOnizleme();//Entity katmanından gelen metot
             dg.DataSource = dataTable;
-        }
-        #endregion
+        }        
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
             //kullanici adını yazdıkça veri tabanından ilgili kayıtlar getirilir.
@@ -66,8 +66,8 @@ namespace Borsa
             {
                 piyasa = new Piyasa();
                 piyasaislem = new PiyasaElle();
-                //urun onaylayacak metoda gönderilecek veriler data girdden okunuyor.
-                //data grid 0. sütun piyasa ID, 7. sütun ise onay durumu verisini barıdırır.
+                //urun onaylayacak metoda gönderilecek veriler data giridden okunuyor.
+                //data grid 0. sütun piyasa ID, 7. sütun ise onay durumu verisini barındırır.
                 piyasa.PiyasaID = Convert.ToInt32(dg.CurrentRow.Cells[0].Value.ToString());
                 piyasa.Onaydurumu = Convert.ToInt32(dg.CurrentRow.Cells[7].Value.ToString());
                 //eğer onay durumuna geçersiz bir değer girilmişse
@@ -79,14 +79,25 @@ namespace Borsa
 
                 if (piyasaislem.PiyasaOnayla(piyasa)) // Business katmanındaki piyasaonayla metodu başarılı olmuşsa
                 {
-                    gridGuncelle(); // data grid guncellenir ve onay mesajı gösterilir.
                     MessageBox.Show("Seçilen ürünün piyasaya girişi onaylandı...!");
+                    TalepElle talepkarsila = new TalepElle();
+                    if (!talepkarsila.TalepKarsila(piyasa.PiyasaID))
+                    {
+                        MessageBox.Show("Ürünü almayı bekleyen talepler karşılandı..!\n"
+                            + "Satınalma emir(ler)i yerine getirildi..!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Karşılanan bir alım emri olmadı..!");
+                    }
+                    gridGuncelle(); // data grid guncellenir ve onay mesajı gösterilir.
                 }
             }
-            catch
+            catch (Exception exc)
             {
                 // urun onayında bir sorun çıktıysa bilgilendirme mesajı görüntülenir.
-                MessageBox.Show("Seçilen ürünün piyasaya girişi onaylanamadı!");
+                MessageBox.Show("Seçilen ürünün piyasaya girişi onaylanamadı!\n"
+                    + exc.ToString());
             }
         }
         #endregion

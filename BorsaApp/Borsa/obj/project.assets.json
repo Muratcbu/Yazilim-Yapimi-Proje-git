@@ -528,11 +528,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\Borsa\\Borsa.csproj",
+      "projectUniqueName": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\Borsa\\Borsa.csproj",
       "projectName": "Borsa",
-      "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\Borsa\\Borsa.csproj",
+      "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\Borsa\\Borsa.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\Borsa\\obj\\",
+      "outputPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\Borsa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -555,11 +555,11 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj": {
-              "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj"
+            "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj": {
+              "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\BusinessLibrary\\BusinessLibrary.csproj"
             },
-            "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\EntityLibrary\\EntityLibrary.csproj": {
-              "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\Yazilim-Yapimi-Proje-git\\BorsaApp\\EntityLibrary\\EntityLibrary.csproj"
+            "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\EntityLibrary\\EntityLibrary.csproj": {
+              "projectPath": "F:\\Murat_ALBAYRAK\\DERSNOT\\YAZILIM_MÜH\\YM_2021_BAHAR\\YM_Yazılım Yapımı\\Proje Çalışması\\BorsaApp\\EntityLibrary\\EntityLibrary.csproj"
             }
           }
         }
