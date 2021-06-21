@@ -19,11 +19,12 @@ namespace Borsa
         {
             InitializeComponent();
         }
+        #region hazırlık
         //sık kullanılacak nesneler global olarak bildiriliyor.
         public Bakiye bakiye;
         BakiyeElle bakiyeislem;
         DataTable dataTable;
-        #region hazırlık
+        
         private void frmParaOnayla_Load(object sender, EventArgs e)
         {
             //data grid verilerle dolduruluyor.

@@ -11,7 +11,7 @@ namespace BusinessLibrary
     public class PiyasaElle
     {
         private PiyasaVTisle context = new PiyasaVTisle();// stok ile ilgili işlemleri yapacak Entity katmanı nesnesi.
-        // stoğa yeni ürün ekleyen metot   
+        // stoğa yeni ürün eklyen metot   
         public bool PiyasaEkle(Piyasa piyasa)
            {
                bool result = false;

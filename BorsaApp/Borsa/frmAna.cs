@@ -95,5 +95,11 @@ namespace Borsa
         }
         #endregion
 
+        private void btnRapor_Click(object sender, EventArgs e)
+        {
+            // Aktif kullanıcının rapor alma formu açılıyor!
+            frmRapor frmrapor = new frmRapor(kisi.KisiID);
+            frmrapor.ShowDialog();
+        }
     }
 }

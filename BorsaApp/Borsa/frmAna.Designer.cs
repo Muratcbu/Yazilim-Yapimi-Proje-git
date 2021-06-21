@@ -36,6 +36,7 @@ namespace Borsa
             this.UrunOnaylaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ParaOnaylaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.grpboxKullanici = new System.Windows.Forms.GroupBox();
+            this.btnTalep = new System.Windows.Forms.Button();
             this.btnAlimYap = new System.Windows.Forms.Button();
             this.btnMalEkle = new System.Windows.Forms.Button();
             this.btnParaEkle = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@ namespace Borsa
             this.btnBitir = new System.Windows.Forms.Button();
             this.btnGiris = new System.Windows.Forms.Button();
             this.lblGirisBaslik = new System.Windows.Forms.Label();
-            this.btnTalep = new System.Windows.Forms.Button();
+            this.btnRapor = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.YoneticicontextMenuStrip1.SuspendLayout();
             this.grpboxKullanici.SuspendLayout();
@@ -99,14 +100,24 @@ namespace Borsa
             this.grpboxKullanici.Controls.Add(this.btnParaEkle);
             this.grpboxKullanici.Location = new System.Drawing.Point(149, 71);
             this.grpboxKullanici.Name = "grpboxKullanici";
-            this.grpboxKullanici.Size = new System.Drawing.Size(508, 100);
+            this.grpboxKullanici.Size = new System.Drawing.Size(508, 79);
             this.grpboxKullanici.TabIndex = 4;
             this.grpboxKullanici.TabStop = false;
             this.grpboxKullanici.Text = "Kullanıcı İşlemleri";
             // 
+            // btnTalep
+            // 
+            this.btnTalep.Location = new System.Drawing.Point(384, 22);
+            this.btnTalep.Name = "btnTalep";
+            this.btnTalep.Size = new System.Drawing.Size(108, 32);
+            this.btnTalep.TabIndex = 1;
+            this.btnTalep.Text = "Alım &Emri Ver (E)";
+            this.btnTalep.UseVisualStyleBackColor = true;
+            this.btnTalep.Click += new System.EventHandler(this.btnTalep_Click);
+            // 
             // btnAlimYap
             // 
-            this.btnAlimYap.Location = new System.Drawing.Point(246, 23);
+            this.btnAlimYap.Location = new System.Drawing.Point(262, 22);
             this.btnAlimYap.Name = "btnAlimYap";
             this.btnAlimYap.Size = new System.Drawing.Size(108, 32);
             this.btnAlimYap.TabIndex = 1;
@@ -116,7 +127,7 @@ namespace Borsa
             // 
             // btnMalEkle
             // 
-            this.btnMalEkle.Location = new System.Drawing.Point(132, 22);
+            this.btnMalEkle.Location = new System.Drawing.Point(139, 23);
             this.btnMalEkle.Name = "btnMalEkle";
             this.btnMalEkle.Size = new System.Drawing.Size(108, 32);
             this.btnMalEkle.TabIndex = 1;
@@ -138,16 +149,16 @@ namespace Borsa
             // 
             this.grpboxAdmin.Controls.Add(this.btnMalOnayla);
             this.grpboxAdmin.Controls.Add(this.btnParaOnayla);
-            this.grpboxAdmin.Location = new System.Drawing.Point(149, 227);
+            this.grpboxAdmin.Location = new System.Drawing.Point(149, 218);
             this.grpboxAdmin.Name = "grpboxAdmin";
-            this.grpboxAdmin.Size = new System.Drawing.Size(508, 100);
+            this.grpboxAdmin.Size = new System.Drawing.Size(508, 76);
             this.grpboxAdmin.TabIndex = 4;
             this.grpboxAdmin.TabStop = false;
             this.grpboxAdmin.Text = "Yönetici İşlemleri";
             // 
             // btnMalOnayla
             // 
-            this.btnMalOnayla.Location = new System.Drawing.Point(132, 22);
+            this.btnMalOnayla.Location = new System.Drawing.Point(225, 22);
             this.btnMalOnayla.Name = "btnMalOnayla";
             this.btnMalOnayla.Size = new System.Drawing.Size(108, 32);
             this.btnMalOnayla.TabIndex = 6;
@@ -167,9 +178,9 @@ namespace Borsa
             // 
             // btnBitir
             // 
-            this.btnBitir.Location = new System.Drawing.Point(331, 177);
+            this.btnBitir.Location = new System.Drawing.Point(327, 166);
             this.btnBitir.Name = "btnBitir";
-            this.btnBitir.Size = new System.Drawing.Size(145, 32);
+            this.btnBitir.Size = new System.Drawing.Size(155, 32);
             this.btnBitir.TabIndex = 4;
             this.btnBitir.Text = "Programdan &Çıkış (Ç)";
             this.btnBitir.UseVisualStyleBackColor = true;
@@ -177,9 +188,9 @@ namespace Borsa
             // 
             // btnGiris
             // 
-            this.btnGiris.Location = new System.Drawing.Point(167, 177);
+            this.btnGiris.Location = new System.Drawing.Point(167, 166);
             this.btnGiris.Name = "btnGiris";
-            this.btnGiris.Size = new System.Drawing.Size(158, 32);
+            this.btnGiris.Size = new System.Drawing.Size(155, 32);
             this.btnGiris.TabIndex = 3;
             this.btnGiris.Text = "&Yeniden Oturum Açma (Y)";
             this.btnGiris.UseVisualStyleBackColor = true;
@@ -195,15 +206,15 @@ namespace Borsa
             this.lblGirisBaslik.TabIndex = 5;
             this.lblGirisBaslik.Text = "Borsa - Ana Ekranı";
             // 
-            // btnTalep
+            // btnRapor
             // 
-            this.btnTalep.Location = new System.Drawing.Point(360, 22);
-            this.btnTalep.Name = "btnTalep";
-            this.btnTalep.Size = new System.Drawing.Size(108, 32);
-            this.btnTalep.TabIndex = 1;
-            this.btnTalep.Text = "Alım &Emri Ver (E)";
-            this.btnTalep.UseVisualStyleBackColor = true;
-            this.btnTalep.Click += new System.EventHandler(this.btnTalep_Click);
+            this.btnRapor.Location = new System.Drawing.Point(486, 166);
+            this.btnRapor.Name = "btnRapor";
+            this.btnRapor.Size = new System.Drawing.Size(155, 32);
+            this.btnRapor.TabIndex = 4;
+            this.btnRapor.Text = "&Rapor Al (R)";
+            this.btnRapor.UseVisualStyleBackColor = true;
+            this.btnRapor.Click += new System.EventHandler(this.btnRapor_Click);
             // 
             // frmAna
             // 
@@ -212,6 +223,7 @@ namespace Borsa
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblGirisBaslik);
             this.Controls.Add(this.btnGiris);
+            this.Controls.Add(this.btnRapor);
             this.Controls.Add(this.btnBitir);
             this.Controls.Add(this.grpboxAdmin);
             this.Controls.Add(this.grpboxKullanici);
@@ -251,6 +263,7 @@ namespace Borsa
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Label lblGirisBaslik;
         private System.Windows.Forms.Button btnTalep;
+        private System.Windows.Forms.Button btnRapor;
     }
 }
 

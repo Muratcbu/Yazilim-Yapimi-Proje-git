@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//Kntity katmanı include ediliyor.
+
+//Entity katmanı include ediliyor.
 using EntityLibrary;
 
 namespace BusinessLibrary
@@ -24,5 +25,7 @@ namespace BusinessLibrary
             }
             return result; // yeni satış kaydedilemediyse.
         }
+        
+
     }
 }

@@ -7,14 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WebForms" Version="140.340.80" />
-    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WinForms" Version="150.1449.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj" />
     <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ExcelLibrary">
+      <HintPath>..\..\..\..\..\..\GÖRSEL_P\ExcelLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

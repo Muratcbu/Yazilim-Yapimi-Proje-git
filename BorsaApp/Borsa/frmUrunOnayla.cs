@@ -79,26 +79,14 @@ namespace Borsa
 
                 if (piyasaislem.PiyasaOnayla(piyasa)) // Business katmanındaki piyasaonayla metodu başarılı olmuşsa
                 {
-
-                    MessageBox.Show("Seçilen ürünün piyasaya girişi onaylandı...!");
-                    TalepElle talepkarsila = new TalepElle();
-                    if(!talepkarsila.TalepKarsila(piyasa.PiyasaID))
-                    {
-                        MessageBox.Show("Ürünü almayı bekleyen talepler karşılandı..!\n"
-                            +"Satınalma emir(ler)i yerine getirildi..!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Karşılanan bir alım emri olmadı..!");
-                    }
                     gridGuncelle(); // data grid guncellenir ve onay mesajı gösterilir.
+                    MessageBox.Show("Seçilen ürünün piyasaya girişi onaylandı...!");
                 }
             }
-            catch (Exception exc)
+            catch
             {
                 // urun onayında bir sorun çıktıysa bilgilendirme mesajı görüntülenir.
-                MessageBox.Show("Seçilen ürünün piyasaya girişi onaylanamadı!\n"
-                    +exc.ToString());
+                MessageBox.Show("Seçilen ürünün piyasaya girişi onaylanamadı!");
             }
         }
         #endregion

@@ -161,7 +161,7 @@ namespace EntityLibrary
             
         }
 
-        // ürün alım-satımı yapılırken talep edilen üründen uygun stokları bulan metot.
+        // ürün alım-satımı yapılırken talep edilen üründen mevcut stok miktarlarını bulan metot.
         public static DataTable UygunStoklar(int urunID, int dovizID)
         {
             DataTable dt = new DataTable();
@@ -172,21 +172,6 @@ namespace EntityLibrary
             string command = "SELECT * FROM dbo.f_UygunStoklar(" + urunID + ","+dovizID+") ORDER BY fiyat ASC, tarih ASC";
             SqlDataAdapter dataadap = new SqlDataAdapter(command, baglanti);
             dataadap.Fill(dt); // f_UygunStoklar fonksiyonundan dönen sonuç dt tablosuna dolduruluyor.
-            baglanti.Close();
-            return dt;
-        }
-
-        // fiyat teklifi ile alım/alım emri işleminde talep edilen üründen uygun stokları bulan metot.
-        public static DataTable UygunStoklar(int urunID, int dovizID, double fiyatTeklif)
-        {
-            DataTable dt = new DataTable();
-            var baglanti = Database.Baglan();
-            // talep edilen ürün, döviz cinsi ve fiyat teklifi ile ilgili parametreler MS SQL Server f_UygunFiyatStoklar
-            // fonksiyonuna veriliyor. Fonksiyon uygun sonuçları en düşük fiyat en önce olacak şekilde
-            // tablo olarak veriyor.
-            string command = "SELECT * FROM dbo.f_UygunFiyatStoklar(" + urunID + "," + dovizID + "," + fiyatTeklif + ") ORDER BY fiyat ASC, tarih ASC";
-            SqlDataAdapter dataadap = new SqlDataAdapter(command, baglanti);
-            dataadap.Fill(dt); // f_UygunFiyatStoklar fonksiyonundan dönen sonuç dt tablosuna dolduruluyor.
             baglanti.Close();
             return dt;
         }
