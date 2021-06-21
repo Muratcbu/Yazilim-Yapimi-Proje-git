@@ -216,7 +216,7 @@ namespace Borsa
             this.btnRapor.UseVisualStyleBackColor = true;
             this.btnRapor.Click += new System.EventHandler(this.btnRapor_Click);
             // 
-            // frmAna
+            // formAna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
