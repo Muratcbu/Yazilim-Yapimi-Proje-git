@@ -76,4 +76,6 @@ BorsaApp\Borsa\Borsa.sln başlangıç dosyasıdır.
 
 -	Kullanıcı borsa üzerinden alış/satış yaptığı ürünlere ait raporlama yapabilmektedir. Kullanıcı tarafından tarih aralığı girilmesi istenir. Belirtilen tarih aralığında  alış/satış işlemine ait rapor dokümanı istenilen formatta kullanıcıya rapor edilir. 
 
--	
+-	Alıcı sisteme TL dışında farklı para tipi ekleyebilmektedir. Üç farklı titpi sistem tarafından kabul edilmektedir. Alıcının eklediği para tipi admin onayına gönderilir. Admin onayladığında para tipi sisteme eklenir, veri tabanına kaydedilir. Adminin para tipini onayladığı tarihteki TCMB Döviz Kuruna göre TL cinsinden miktarı hesaplanıp tutar TL olarak sisteme eklenmektedir.
+
+-	Sisteme Muhasebe_kullanıcısı eklenmektedir. Muhasebe kullanıcısı aracılık hizmeti olarak ücret almaktadır. Aracılık ücreti yüzde 1 olarak belirlenmiştir. Alım işlemi yapan kullanıcıda yüzde 1 tutarında muhasebe ücreti tahsil edilmektedir. 
